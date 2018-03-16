@@ -63,7 +63,15 @@ footer {
     color: #ddd;
 }
 
+
 @keyframes slideDown {
     0%{opacity: 0; transform: translateY(-10px)};
     100%{opacity: 1; transform: translateY(00px)};
+}
+
+@media (min-width:0px) and (max-width:650px){
+    form, .news {
+        grid-template-columns: 1fr;
+    }
+  
 }
