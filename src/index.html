@@ -7,8 +7,31 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Rozha+One|Quicksand" rel="stylesheet">
+  <!-- manifest-->
+  <link rel="manifest" href="/manifest.json" />
+
 </head>
 <body>
-  <app-root></app-root>
-</body>
+  <noscript>
+    You need Javascript Enabled in order to use this app.
+  </noscript>
+  <div class="container">
+    <app-root></app-root>
+  </div>  
+
+  <script>
+    if("serviceWorker" in navigator){
+      //check if service is supported on the browser 
+      navigator.serviceWorker.register("/service-worker.js")
+      .then((resgistration)=>{
+         console.log("Service Worker is registered") 
+      })
+      .catch((err)=>{
+        console.log("Error: " +  err);
+      });
+    }
+  </script>
+
+  </body>
 </html>

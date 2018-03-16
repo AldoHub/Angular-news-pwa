@@ -1,0 +1,32 @@
+<p>
+    Get breaking news headlines, and search for articles from over 30,000 news sources and blogs with our news API
+</p>
+
+<form (ngSubmit)="send()">
+    <label for="source">Source</label>
+    <select name="source" (change)="changeHandlerSource($event)">
+      <option value="noOption">Select a source.</option>
+      <option *ngFor="let s of newsSources" title="{{s.description}}" value={{s.id}}>{{s.name}}</option>
+    </select>
+    <select name="relevance" (change)="changeHandlerRelevance($event)">
+      <option value="top">Top</option>
+      <option value="latest">Latest</option>
+    </select>
+    <input type="submit" value="Get News" />
+</form>
+
+
+    <div *ngIf="newNewsArray.length > 0" class="newsContainer">
+     
+      <div *ngFor="let n of newNewsArray" class="news">
+        <div>
+          <img src="{{n.urlToImage}}"  alt="{{n.urlToImage}}"/> 
+        </div>
+        <div>
+          <h3>{{n.title}}</h3>
+          <p>{{n.description}}</p>
+          <a href="{{n.url}}" target="_blank">Read This Note.</a>
+        </div>
+      </div>
+    </div>
+
